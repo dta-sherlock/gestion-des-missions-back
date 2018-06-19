@@ -49,6 +49,7 @@ public class Nature {
     public void setId(int id) {
         this.id = id;
     }
+
     public boolean isFacturation() {
         return facturation;
     }
