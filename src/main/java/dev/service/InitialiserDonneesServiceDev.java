@@ -17,9 +17,12 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
 
     @Override
     public void Initialiser() {
-        //Mission mission1 = new Mission();
 
-        //missionrepository.save(mission1);
+       // if (this.missionrepository.findByName() == null){
+            //Mission mission1 = new Mission();
+            //missionrepository.save(mission1);
+       //}
+
 
         LOG.debug("Initialisation des donnees");
     }

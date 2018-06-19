@@ -7,8 +7,19 @@
         </encoder>
     </appender>
 
-    <logger name="dev.service" level="INFO">
-        <appender-ref ref="STDOUT" />
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>app.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="dev.service" level="DEBUG">
+        <appender-ref ref="FILE" />
     </logger>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="org.springframework.web" level="DEBUG"/>
 
 </configuration>
