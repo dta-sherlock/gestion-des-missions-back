@@ -102,4 +102,5 @@ public class Utilisateur {
     public void setMissions(List<Mission> missions) {
         this.missions = missions;
     }
+
 }
