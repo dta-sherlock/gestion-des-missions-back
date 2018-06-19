@@ -34,7 +34,7 @@ public class Nature {
         this.debutValidite = debutValidite;
     }
 
-    public Nature(String name, boolean facturation, boolean prime, int TJM, int pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite, List<Mission> missions) {
+    public Nature(String name, boolean facturation, boolean prime, int TJM, int pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
         this.name = name;
         this.facturation = facturation;
         this.prime = prime;
@@ -44,7 +44,6 @@ public class Nature {
         this.plafondDepassable = plafondDepassable;
         this.debutValidite = debutValidite;
         this.finValidite = finValidite;
-        this.missions = missions;
     }
 
     public int getId() {

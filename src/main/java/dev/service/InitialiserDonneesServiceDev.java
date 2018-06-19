@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 
 @Service
 @Transactional
@@ -26,8 +27,7 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
     public void Initialiser() {
 
         if (this.natureRepository.findByName("Conseil") == null) {
-            Nature nature1 = new Nature(true, true, 20, 5);
-            nature1.setName("Conseil");
+            Nature nature1 = new Nature("Conseil", false, false, 150, true, LocalDate.now());
             natureRepository.save(nature1);
         }
 
