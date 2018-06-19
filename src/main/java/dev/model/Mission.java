@@ -32,7 +32,9 @@ public class Mission {
     private Nature nature;
     private String VilleDeDepart;
     private String VilleDArrivee;
+    @Enumerated(EnumType.STRING)
     private Transport transport;
+    @Enumerated(EnumType.STRING)
     private Statue statue;
 
     public Mission(){
