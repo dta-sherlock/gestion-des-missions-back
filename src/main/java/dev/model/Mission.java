@@ -83,7 +83,6 @@ public class Mission {
 
     public void setDateFin(LocalDate dateDeFin) {
         this.dateFin = dateFin;
-
     }
 
     public Nature getNature() {
