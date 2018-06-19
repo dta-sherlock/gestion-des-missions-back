@@ -61,7 +61,7 @@ public class Mission {
         return dateDeFin;
     }
 
-    public void setDateDeFin(LocalDates dateDeFin) {
+    public void setDateDeFin(LocalDate dateDeFin) {
         this.dateDeFin = dateDeFin;
     }
 
