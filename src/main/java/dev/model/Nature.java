@@ -1,6 +1,7 @@
 package dev.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -11,20 +12,39 @@ public class Nature {
      private int id;
      private String name;
      private boolean facturation;
-
-
-
-    private boolean prime;
+     private boolean prime;
      private int TJM;
      private int pourcentage;
-     @OneToMany(mappedBy = "nature")
+     private int plafond;
+     private boolean plafondDepassable;
+     private LocalDate debutValidite;
+     private  LocalDate finValidite;
+
+    @OneToMany(mappedBy = "nature")
      private List<Mission> missions;
 
-    public Nature(boolean facturation, boolean prime, int TJM, int pourcentage) {
+    public Nature(){}
+
+    public Nature(String name, boolean facturation, boolean prime, int plafond, boolean plafondDepassable, LocalDate debutValidite) {
+        this.name = name;
+        this.facturation = facturation;
+        this.prime = prime;
+        this.plafond = plafond;
+        this.plafondDepassable = plafondDepassable;
+        this.debutValidite = debutValidite;
+    }
+
+    public Nature(String name, boolean facturation, boolean prime, int TJM, int pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite, List<Mission> missions) {
+        this.name = name;
         this.facturation = facturation;
         this.prime = prime;
         this.TJM = TJM;
         this.pourcentage = pourcentage;
+        this.plafond = plafond;
+        this.plafondDepassable = plafondDepassable;
+        this.debutValidite = debutValidite;
+        this.finValidite = finValidite;
+        this.missions = missions;
     }
 
     public int getId() {
@@ -79,5 +99,38 @@ public class Nature {
 
     public void setMissions(List<Mission> missions) {
         this.missions = missions;
+    }
+
+    public LocalDate getFinValidite() {
+        return finValidite;
+    }
+
+    public void setFinValidite(LocalDate finValidite) {
+        this.finValidite = finValidite;
+    }
+
+    public LocalDate getDebutValidite() {
+
+        return debutValidite;
+    }
+
+    public void setDebutValidite(LocalDate debutValidite) {
+        this.debutValidite = debutValidite;
+    }
+
+    public boolean isPlafondDepassable() {
+        return plafondDepassable;
+    }
+
+    public void setPlafondDepassable(boolean plafondDepassable) {
+        this.plafondDepassable = plafondDepassable;
+    }
+
+    public int getPlafond() {
+        return plafond;
+    }
+
+    public void setPlafond(int plafond) {
+        this.plafond = plafond;
     }
 }
