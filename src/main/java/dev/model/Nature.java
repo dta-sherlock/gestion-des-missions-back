@@ -14,7 +14,7 @@ public class Nature {
      private boolean facturation;
      private boolean prime;
      private int TJM;
-     private int pourcentage;
+     private float pourcentage;
      private int plafond;
      private boolean plafondDepassable;
      private LocalDate debutValidite;
@@ -34,7 +34,7 @@ public class Nature {
         this.debutValidite = debutValidite;
     }
 
-    public Nature(String name, boolean facturation, boolean prime, int TJM, int pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
+    public Nature(String name, boolean facturation, boolean prime, int TJM, float pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
         this.name = name;
         this.facturation = facturation;
         this.prime = prime;
@@ -77,11 +77,11 @@ public class Nature {
         this.TJM = TJM;
     }
 
-    public int getPourcentage() {
+    public float  getPourcentage() {
         return pourcentage;
     }
 
-    public void setPourcentage(int pourcentage) {
+    public void setPourcentage(float pourcentage) {
         this.pourcentage = pourcentage;
     }
 
