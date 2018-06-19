@@ -51,6 +51,14 @@ public class Mission {
         this.statue = statue;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public LocalDate getDateDeDebut() {
         return dateDeDebut;
     }

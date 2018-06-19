@@ -77,7 +77,7 @@ public class Nature {
         this.TJM = TJM;
     }
 
-    public float getPourcentage() {
+    public float  getPourcentage() {
         return pourcentage;
     }
 
