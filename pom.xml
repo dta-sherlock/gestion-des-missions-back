@@ -58,7 +58,6 @@
            <artifactId>logback-classic</artifactId>
            <version>1.2.2</version>
        </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-java8</artifactId>
@@ -80,9 +79,6 @@
             <version>2.9.6</version>
         </dependency>
    </dependencies>
-=======
-   </dependencies>
-
    <build>
        <finalName>back</finalName>
        <plugins>
@@ -143,85 +139,6 @@
            <properties>
                <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
                <jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADDON_DB}</jdbc.url
-               <jdbc.user>${env.MYSQL_ADDON_USER}</jdbc.user>
-               <jdbc.pass>${env.MYSQL_ADDON_PASSWORD}</jdbc.pass>
-               <jpa.hibernate.ddl>${env.HIBERNATE_DDL}</jpa.hibernate.ddl>
-               <jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
-               <jdbc.connections.max.active>2</jdbc.connections.max.active>
-               <app.version>${env.COMMIT_ID}</app.version>
-           </properties>
-           <dependencies>
-               <dependency>
-                   <groupId>mysql</groupId>
-                   <artifactId>mysql-connector-java</artifactId>
-                   <scope>runtime</scope>
-               </dependency>
-           </dependencies>
-       </profile>
-
-   </profiles>
-
->>>>>>> creation service d'initialisation des donnnees (a completer), du listerner qui ecoute le demarrage de l'appli + mise en place des loggers (a tester quand l'appli pourra demarrer
-
-   <build>
-       <finalName>back</finalName>
-       <plugins>
-           <plugin>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-maven-plugin</artifactId>
-           </plugin>
-       </plugins>
-   </build>
-   <profiles>
-       <profile>
-           <id>dev-h2</id>
-           <activation>
-               <activeByDefault>true</activeByDefault>
-           </activation>
-           <properties>
-               <jdbc.driver>org.h2.Driver</jdbc.driver>
-               <jdbc.url>jdbc:h2:mem:db</jdbc.url>
-               <jdbc.user>sa</jdbc.user>
-               <jdbc.pass></jdbc.pass>
-               <jpa.hibernate.ddl>create-drop</jpa.hibernate.ddl>
-               <jdbc.dialect>org.hibernate.dialect.H2Dialect</jdbc.dialect>
-               <jdbc.connections.max.active>5</jdbc.connections.max.active>
-           </properties>
-           <dependencies>
-               <dependency>
-                   <groupId>com.h2database</groupId>
-                   <artifactId>h2</artifactId>
-                   <scope>runtime</scope>
-               </dependency>
-           </dependencies>
-       </profile>
-       <profile>
-           <id>dev-mysql</id>
-           <activation>
-               <activeByDefault>false</activeByDefault>
-           </activation>
-           <properties>
-               <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-               <jdbc.url>jdbc:mysql://localhost:3306/sirh-db</jdbc.url>
-               <jdbc.user>sirh-db</jdbc.user>
-               <jdbc.pass>sirh-db</jdbc.pass>
-               <jpa.hibernate.ddl>create-drop</jpa.hibernate.ddl>
-               <jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
-               <jdbc.connections.max.active>5</jdbc.connections.max.active>
-           </properties>
-           <dependencies>
-               <dependency>
-                   <groupId>mysql</groupId>
-                   <artifactId>mysql-connector-java</artifactId>
-                   <scope>runtime</scope>
-               </dependency>
-           </dependencies>
-       </profile>
-       <profile>
-           <id>prod</id>
-           <properties>
-               <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-               <jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADDON_DB}</jdbc.url>
                <jdbc.user>${env.MYSQL_ADDON_USER}</jdbc.user>
                <jdbc.pass>${env.MYSQL_ADDON_PASSWORD}</jdbc.pass>
                <jpa.hibernate.ddl>${env.HIBERNATE_DDL}</jpa.hibernate.ddl>
