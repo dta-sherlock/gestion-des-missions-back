@@ -29,8 +29,7 @@ public class Nature {
         this.plafondDepassable = plafondDepassable;
         this.debutValidite = debutValidite;
     }
-
-
+    
     public Nature(String nom, boolean facturation, boolean prime, int TJM, float pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
         this.nom = nom;
         this.facturation = facturation;
