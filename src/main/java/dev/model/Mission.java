@@ -49,6 +49,7 @@ public class Mission {
         this.prime = 0;
     }
 
+
     public Mission(LocalDate dateDebut, LocalDate dateFin, Nature nature, String villeDeDepart, String villeDArrivee, Transport transport, Statut statut) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
@@ -82,6 +83,7 @@ public class Mission {
 
     public void setDateFin(LocalDate dateDeFin) {
         this.dateFin = dateFin;
+
     }
 
     public Nature getNature() {
