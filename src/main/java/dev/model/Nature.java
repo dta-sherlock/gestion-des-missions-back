@@ -1,15 +1,20 @@
 package dev.model;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Nature {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private int id;
      private String name;
      private boolean facturation;
-     private boolean prime;
+
+
+
+    private boolean prime;
      private int TJM;
      private int pourcentage;
      @OneToMany(mappedBy = "nature")
@@ -22,6 +27,13 @@ public class Nature {
         this.pourcentage = pourcentage;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public boolean isFacturation() {
         return facturation;
     }

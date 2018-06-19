@@ -4,6 +4,7 @@ import org.hibernate.tuple.GeneratedValueGeneration;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
 public class Mission {
@@ -24,21 +25,21 @@ public class Mission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date dateDeDebut;
-    private Date dateDeFin;
+    private LocalDate dateDeDebut;
+    private LocalDate dateDeFin;
     @ManyToOne
     @JoinColumn(name = "NAT_ID")
     private Nature nature;
     private String VilleDeDepart;
     private String VilleDArrivee;
-    private String transport;
+    private Transport transport;
     private Statue statue;
 
     public Mission(){
 
     }
 
-    public Mission(Date dateDeDebut, Date dateDeFin, Nature nature, String villeDeDepart, String villeDArrivee, String transport, Statue statue) {
+    public Mission(LocalDate dateDeDebut, LocalDate dateDeFin, Nature nature, String villeDeDepart, String villeDArrivee, Transport transport, Statue statue) {
         this.dateDeDebut = dateDeDebut;
         this.dateDeFin = dateDeFin;
         this.nature = nature;
@@ -48,19 +49,19 @@ public class Mission {
         this.statue = statue;
     }
 
-    public Date getDateDeDebut() {
+    public LocalDate getDateDeDebut() {
         return dateDeDebut;
     }
 
-    public void setDateDeDebut(Date dateDeDebut) {
+    public void setDateDeDebut(LocalDate dateDeDebut) {
         this.dateDeDebut = dateDeDebut;
     }
 
-    public Date getDateDeFin() {
+    public LocalDate getDateDeFin() {
         return dateDeFin;
     }
 
-    public void setDateDeFin(Date dateDeFin) {
+    public void setDateDeFin(LocalDates dateDeFin) {
         this.dateDeFin = dateDeFin;
     }
 
@@ -88,11 +89,11 @@ public class Mission {
         VilleDArrivee = villeDArrivee;
     }
 
-    public String getTransport() {
+    public Transport getTransport() {
         return transport;
     }
 
-    public void setTransport(String transport) {
+    public void setTransport(Transport transport) {
         this.transport = transport;
     }
 
