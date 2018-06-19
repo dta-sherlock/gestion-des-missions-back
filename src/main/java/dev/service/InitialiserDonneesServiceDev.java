@@ -33,6 +33,9 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
         Nature nature3 = new Nature("Formation", true, false, 200, false, LocalDate.now());
         nature3.setTJM(750);
 
+        /**
+         * On vérifie que la nature n'est pas présente en base avant de l'enregistrer
+         */
         if (this.natureRepository.findByName("Conseil") == null) {
             natureRepository.save(nature1);
         }
@@ -49,9 +52,23 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
         Mission mission2 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.SEPTEMBER, 20), nature2, "Paris", "Rennes", Mission.Transport.Train, Mission.Statue.EN_ATTENTE_VALIDATION);
         Mission mission3 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.JULY, 30), nature3, "Poitiers", "Marseille", Mission.Transport.Voiture_de_service, Mission.Statue.VALIDEE);
 
-        missionRepository.save(mission1);
-        missionRepository.save(mission2);
-        missionRepository.save(mission3);
+        /**
+         * On enregistre la mission uniquement si aucune autre mission avec la même nature n'est présente en base.
+         * Cela évite d'enregistrer deux fois la même mission.
+         * Si une autre mission avec la même nature est déjà présente, notre mission n'est pas enregistrée.
+         * Ce n'est cependant pas un problème car il s'agit seuelemnt d'un jeu de données test.
+         */
+        if (this.missionRepository.findByNatureName("Conseil").isEmpty()){
+            missionRepository.save(mission1);
+        }
+
+        if (this.missionRepository.findByNatureName("Expertise technique").isEmpty()){
+            missionRepository.save(mission2);
+        }
+
+        if (this.missionRepository.findByNatureName("Formation").isEmpty()){
+            missionRepository.save(mission3);
+        }
 
         LOG.debug("Initialisation des donnees");
     }
