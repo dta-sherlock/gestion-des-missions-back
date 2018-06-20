@@ -14,7 +14,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
-
     @ExceptionHandler(value = { ItemNotFoundException.class })
     protected ResponseEntity<Object> handleConflict(ItemNotFoundException ex, WebRequest request) {
         String bodyOfResponse = "L'objet recherché n'existe pas";
