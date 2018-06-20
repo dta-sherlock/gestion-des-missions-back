@@ -20,9 +20,6 @@ public class Nature {
      private LocalDate debutValidite;
      private  LocalDate finValidite;
 
-    @OneToMany(mappedBy = "nature")
-     private List<Mission> missions;
-
     public Nature(){}
 
     public Nature(String name, boolean facturation, boolean prime, int plafond, boolean plafondDepassable, LocalDate debutValidite) {
@@ -91,13 +88,6 @@ public class Nature {
 
     public void setName(String name) {
         this.name = name;
-    }
-    public List<Mission> getMissions() {
-        return missions;
-    }
-
-    public void setMissions(List<Mission> missions) {
-        this.missions = missions;
     }
 
     public LocalDate getFinValidite() {
