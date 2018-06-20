@@ -138,7 +138,7 @@
            <id>prod</id>
            <properties>
                <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-               <jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADDON_DB}</jdbc.url
+               <jdbc.url>jdbc:mysql://${env.MYSQL_ADDON_HOST}:${env.MYSQL_ADDON_PORT}/${env.MYSQL_ADDON_DB}</jdbc.url>
                <jdbc.user>${env.MYSQL_ADDON_USER}</jdbc.user>
                <jdbc.pass>${env.MYSQL_ADDON_PASSWORD}</jdbc.pass>
                <jpa.hibernate.ddl>${env.HIBERNATE_DDL}</jpa.hibernate.ddl>

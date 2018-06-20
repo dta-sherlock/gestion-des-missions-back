@@ -2,11 +2,14 @@ package dev.service;
 
 import dev.model.Mission;
 import dev.model.Nature;
+import dev.model.Utilisateur;
 import dev.repository.MissionRepository;
 import dev.repository.NatureRepository;
+import dev.repository.UtilisateurRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,9 +24,12 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
 
     @Autowired
     MissionRepository missionRepository;
-
     @Autowired
     NatureRepository natureRepository;
+    @Autowired
+    UtilisateurRepository utilisateurRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public void Initialiser() {
@@ -36,15 +42,15 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
         /**
          * On vérifie que la nature n'est pas présente en base avant de l'enregistrer
          */
-        if (this.natureRepository.findByName("Conseil") == null) {
+        if (this.natureRepository.findByName(nature1.getName()) == null) {
             natureRepository.save(nature1);
         }
 
-        if (this.natureRepository.findByName("Expertise technique") == null){
+        if (this.natureRepository.findByName(nature2.getName()) == null){
             natureRepository.save(nature2);
         }
 
-        if (this.natureRepository.findByName("Formation") == null){
+        if (this.natureRepository.findByName(nature3.getName()) == null){
             natureRepository.save(nature3);
         }
 
@@ -58,18 +64,36 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
          * Si une autre mission avec la même nature est déjà présente, notre mission n'est pas enregistrée.
          * Ce n'est cependant pas un problème car il s'agit seuelemnt d'un jeu de données test.
          */
-        if (this.missionRepository.findByNatureName("Conseil").isEmpty()){
+        if (this.missionRepository.findByNatureName(mission1.getNature().getName()).isEmpty()){
             missionRepository.save(mission1);
         }
 
-        if (this.missionRepository.findByNatureName("Expertise technique").isEmpty()){
+        if (this.missionRepository.findByNatureName(mission2.getNature().getName()).isEmpty()){
             missionRepository.save(mission2);
         }
 
-        if (this.missionRepository.findByNatureName("Formation").isEmpty()){
+        if (this.missionRepository.findByNatureName(mission3.getNature().getName()).isEmpty()){
             missionRepository.save(mission3);
         }
 
+        Utilisateur utilisateur1 = new Utilisateur("Mario", this.passwordEncoder.encode("mdpmario"), "mario@kart.wii", Utilisateur.Profil.Utilisateur, null);
+        Utilisateur utilisateur2 = new Utilisateur("Luigi", this.passwordEncoder.encode("mdpluigi"), "luigi@kart.wii", Utilisateur.Profil.Manager,"../images/luigi.jpeg");
+        Utilisateur utilisateur3 = new Utilisateur("Yoshi", this.passwordEncoder.encode("mdpluigi"), "yoshi@kart.wii", Utilisateur.Profil.Admin, null);
+
+        /**
+         * On vérifie que l'utilisateur n'est pas présent en base avant de l'enregistrer
+         */
+        if (this.utilisateurRepository.findByNom(utilisateur1.getNom()) == null){
+            utilisateurRepository.save(utilisateur1);
+        }
+
+        if (this.utilisateurRepository.findByNom(utilisateur2.getNom()) == null){
+            utilisateurRepository.save(utilisateur2);
+        }
+
+        if (this.utilisateurRepository.findByNom(utilisateur3.getNom()) == null){
+            utilisateurRepository.save(utilisateur3);
+        }
         LOG.debug("Initialisation des donnees");
     }
 }
