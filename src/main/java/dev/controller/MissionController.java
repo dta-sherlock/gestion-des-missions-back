@@ -28,4 +28,9 @@ public class MissionController {
         }
         return this.missionRepository.findOne(id);
     }
+    
+    @PostMapping
+    public void postMission(@RequestBody Mission mission){
+        this.missionRepository.save(mission);
+    }
 }
