@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 public class Utilisateur {
+
     enum Profil{
         Utilisateur,
         Manager,
@@ -16,11 +17,20 @@ public class Utilisateur {
     private String nom;
     private String MDP;
     private String email;
+    @Enumerated(EnumType.STRING)
     private Profil profil;
     //La photo est penser pour être un lien. Elle n'est pas obligatoire.
     @Column(nullable = true)
     private String photo;
 
+    public Utilisateur() {}
+
+    public Utilisateur(String nom, String MDP, String email, Profil profil) {
+        this.nom = nom;
+        this.MDP = MDP;
+        this.email = email;
+        this.profil = profil;
+    }
 
     public Utilisateur(String nom, String MDP, String email, Profil profil, String photo) {
         this.nom = nom;
