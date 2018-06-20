@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Utilisateur {
 
-    enum Profil{
+    public enum Profil{
         Utilisateur,
         Manager,
         Admin;
