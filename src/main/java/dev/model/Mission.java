@@ -43,9 +43,10 @@ public class Mission {
     private Transport transport;
     @Enumerated(EnumType.STRING)
     private Statut statut;
+    private int prime;
 
     public Mission(){
-
+        this.prime = 0;
     }
 
     public Mission(LocalDate dateDebut, LocalDate dateFin, Nature nature, String villeDeDepart, String villeDArrivee, Transport transport, Statut statut) {
@@ -56,6 +57,7 @@ public class Mission {
         VilleDArrivee = villeDArrivee;
         this.transport = transport;
         this.statut = statut;
+        this.prime = 0;
     }
 
     public int getId() {
@@ -120,5 +122,13 @@ public class Mission {
 
     public void setStatut(Statut statut) {
         this.statut = statut;
+    }
+
+    public int getPrime() {
+        return prime;
+    }
+
+    public void setPrime(int prime) {
+        this.prime = prime;
     }
 }
