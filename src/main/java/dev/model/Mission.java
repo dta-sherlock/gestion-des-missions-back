@@ -14,10 +14,20 @@ public class Mission {
     }
 
     public enum Transport{
-        Avion,
-        Covoiturage,
-        Train,
-        Voiture_de_service;
+        AVION ("Avion"),
+        COVOITURAGE ("Covoiturage"),
+        TRAIN ("Train"),
+        VOITURE_DE_SERVICE ("Voiture de service");
+
+        private String name;
+
+        Transport(String name) {
+            this.name=name;
+        }
+
+        public String toString(){
+            return name;
+        }
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
