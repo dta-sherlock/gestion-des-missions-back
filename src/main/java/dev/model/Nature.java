@@ -30,7 +30,6 @@ public class Nature {
         this.debutValidite = debutValidite;
     }
 
-
     public Nature(String nom, boolean facturation, boolean prime, int TJM, float pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
         this.nom = nom;
         this.facturation = facturation;
@@ -85,6 +84,7 @@ public class Nature {
     public String getNom() {
         return nom;
     }
+
 
     public void setNom(String name) {
         this.nom = name;

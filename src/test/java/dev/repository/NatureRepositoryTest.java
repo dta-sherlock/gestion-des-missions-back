@@ -27,7 +27,6 @@ public class NatureRepositoryTest {
 
     @Before
     public void setUp(){
-
         natureTest.setNom("Test");
         testEntityManager.persist(natureTest);
         natureTest2.setNom("Test2");
@@ -45,12 +44,15 @@ public class NatureRepositoryTest {
     @Test
     public void testFindByName() {
         Nature found = natureRepository.findByNom(natureTest.getNom());
+
         assertThat(found.getNom()).isEqualTo(natureTest.getNom());
     }
 
     @Test
     public void testDelete() {
         natureRepository.delete(natureTest2);
+
         assertThat(natureRepository.findByNom(natureTest2.getNom())).isNull();
+
     }
 }
