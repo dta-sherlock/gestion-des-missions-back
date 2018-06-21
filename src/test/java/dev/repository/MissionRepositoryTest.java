@@ -29,7 +29,7 @@ public class MissionRepositoryTest {
     @Before
     public void setUp(){
         Nature natureTest = new Nature();
-        natureTest.setName("Nature test");
+        natureTest.setNom("Nature test");
         missionTest2.setNature(natureTest);
 
         testEntityManager.persist(natureTest);

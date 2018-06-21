@@ -27,9 +27,9 @@ public class NatureRepositoryTest {
 
     @Before
     public void setUp(){
-        natureTest.setName("Test");
+        natureTest.setNom("Test");
         testEntityManager.persist(natureTest);
-        natureTest2.setName("Test2");
+        natureTest2.setNom("Test2");
         testEntityManager.persist(natureTest2);
         testEntityManager.flush();
     }
@@ -53,6 +53,6 @@ public class NatureRepositoryTest {
         natureRepository.delete(natureTest2);
 
         assertThat(natureRepository.findByNom(natureTest2.getNom())).isNull();
-        
+
     }
 }
