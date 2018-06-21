@@ -1,7 +1,10 @@
 package dev.controller;
 
 import dev.exception.ItemNotFoundException;
+<<<<<<< HEAD
 import org.springframework.dao.InvalidDataAccessApiUsageException;
+=======
+>>>>>>> gestion de l'exception DataIntegrityViolation
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+
     @ExceptionHandler(value = { ItemNotFoundException.class })
     protected ResponseEntity<Object> handleConflict(ItemNotFoundException ex, WebRequest request) {
         String bodyOfResponse = "L'objet recherché n'existe pas";
