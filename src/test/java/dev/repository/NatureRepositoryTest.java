@@ -53,6 +53,6 @@ public class NatureRepositoryTest {
         natureRepository.delete(natureTest2);
 
         assertThat(natureRepository.findByNom(natureTest2.getNom())).isNull();
-
+        
     }
 }

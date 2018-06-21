@@ -51,6 +51,7 @@ public class MissionRepositoryTest {
 
         List <Mission> found = missionRepository.findByNatureNom(missionTest2.getNature().getNom());
 
+
         assertThat(found).contains(missionTest2);
     }
 
@@ -58,7 +59,9 @@ public class MissionRepositoryTest {
     public void testDelete(){
         missionRepository.delete(missionTest2);
 
+
         List <Mission> found = missionRepository.findByNatureNom(missionTest2.getNature().getNom());
+
 
         assertThat(found).isEmpty();
     }
