@@ -54,9 +54,9 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
             natureRepository.save(nature3);
         }
 
-        Mission mission1 = new Mission(LocalDate.now(), LocalDate.of(2018,Month.JULY, 12), nature1, "Nantes", "Lyon", Mission.Transport.Covoiturage, Mission.Statue.INITIALE);
-        Mission mission2 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.SEPTEMBER, 20), nature2, "Paris", "Rennes", Mission.Transport.Train, Mission.Statue.EN_ATTENTE_VALIDATION);
-        Mission mission3 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.JULY, 30), nature3, "Poitiers", "Marseille", Mission.Transport.Voiture_de_service, Mission.Statue.VALIDEE);
+        Mission mission1 = new Mission(LocalDate.now(), LocalDate.of(2018,Month.JULY, 12), nature1, "Nantes", "Lyon", Mission.Transport.Covoiturage, Mission.Statut.INITIALE);
+        Mission mission2 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.SEPTEMBER, 20), nature2, "Paris", "Rennes", Mission.Transport.Train, Mission.Statut.EN_ATTENTE_VALIDATION);
+        Mission mission3 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.JULY, 30), nature3, "Poitiers", "Marseille", Mission.Transport.Voiture_de_service, Mission.Statut.VALIDEE);
 
         /**
          * On enregistre la mission uniquement si aucune autre mission avec la même nature n'est présente en base.
