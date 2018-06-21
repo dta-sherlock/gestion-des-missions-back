@@ -27,6 +27,7 @@ public class Utilisateur {
     private Utilisateur manager;
     @OneToMany(mappedBy = "manager")
     private List<Utilisateur> employers;
+
     @OneToMany
     private List<Mission> missions;
 
@@ -102,5 +103,4 @@ public class Utilisateur {
     public void setMissions(List<Mission> missions) {
         this.missions = missions;
     }
-
 }
