@@ -4,6 +4,7 @@ import dev.exception.ItemNotFoundException;
 import dev.model.Mission;
 import dev.repository.MissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class MissionController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMission(@PathVariable Integer id) throws ItemNotFoundException {
+    public void deleteMission(@PathVariable Integer id) throws ItemNotFoundException, DataIntegrityViolationException {
         if (this.missionRepository.findOne(id) == null) {
             throw new ItemNotFoundException();
         }
