@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,9 +27,9 @@ public class NatureRepositoryTest {
 
     @Before
     public void setUp(){
-        natureTest.setName("Test");
+        natureTest.setNom("Test");
         testEntityManager.persist(natureTest);
-        natureTest2.setName("Test2");
+        natureTest2.setNom("Test2");
         testEntityManager.persist(natureTest2);
         testEntityManager.flush();
     }
@@ -44,13 +43,13 @@ public class NatureRepositoryTest {
 
     @Test
     public void testFindByName() {
-        Nature found = natureRepository.findByName(natureTest.getName());
-        assertThat(found.getName()).isEqualTo(natureTest.getName());
+        Nature found = natureRepository.findByName(natureTest.getNom());
+        assertThat(found.getNom()).isEqualTo(natureTest.getNom());
     }
 
     @Test
     public void testDelete() {
         natureRepository.delete(natureTest2);
-        assertThat(natureRepository.findByName(natureTest2.getName())).isNull();
+        assertThat(natureRepository.findByName(natureTest2.getNom())).isNull();
     }
 }

@@ -2,7 +2,6 @@ package dev.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 public class Nature {
@@ -10,7 +9,7 @@ public class Nature {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private int id;
-     private String name;
+     private String nom;
      private boolean facturation;
      private boolean prime;
      private int TJM;
@@ -22,8 +21,8 @@ public class Nature {
 
     public Nature(){}
 
-    public Nature(String name, boolean facturation, boolean prime, int plafond, boolean plafondDepassable, LocalDate debutValidite) {
-        this.name = name;
+    public Nature(String nom, boolean facturation, boolean prime, int plafond, boolean plafondDepassable, LocalDate debutValidite) {
+        this.nom = nom;
         this.facturation = facturation;
         this.prime = prime;
         this.plafond = plafond;
@@ -31,8 +30,8 @@ public class Nature {
         this.debutValidite = debutValidite;
     }
 
-    public Nature(String name, boolean facturation, boolean prime, int TJM, float pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
-        this.name = name;
+    public Nature(String nom, boolean facturation, boolean prime, int TJM, float pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
+        this.nom = nom;
         this.facturation = facturation;
         this.prime = prime;
         this.TJM = TJM;
@@ -82,12 +81,12 @@ public class Nature {
         this.pourcentage = pourcentage;
     }
 
-    public String getName() {
-        return name;
+    public String getNom() {
+        return nom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public LocalDate getFinValidite() {
