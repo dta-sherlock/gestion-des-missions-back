@@ -5,7 +5,8 @@ import java.util.List;
 
 @Entity
 public class Utilisateur {
-    enum Profil{
+
+    public enum Profil{
         Utilisateur,
         Manager,
         Admin;
@@ -17,6 +18,7 @@ public class Utilisateur {
     private String nom;
     private String MDP;
     private String email;
+    @Enumerated(EnumType.STRING)
     private Profil profil;
     //La photo est penser pour être un lien. Elle n'est pas obligatoire.
     @Column(nullable = true)
@@ -26,6 +28,14 @@ public class Utilisateur {
     @OneToMany(mappedBy = "manager")
     private List<Utilisateur> employers;
 
+    public Utilisateur() {}
+
+    public Utilisateur(String nom, String MDP, String email, Profil profil) {
+        this.nom = nom;
+        this.MDP = MDP;
+        this.email = email;
+        this.profil = profil;
+    }
 
     public Utilisateur(String nom, String MDP, String email, Profil profil, String photo) {
         this.nom = nom;
