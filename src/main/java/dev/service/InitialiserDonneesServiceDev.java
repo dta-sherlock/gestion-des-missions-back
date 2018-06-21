@@ -42,21 +42,21 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
         /**
          * On vérifie que la nature n'est pas présente en base avant de l'enregistrer
          */
-        if (this.natureRepository.findByName(nature1.getName()) == null) {
+        if (this.natureRepository.findByNom(nature1.getNom()) == null) {
             natureRepository.save(nature1);
         }
 
-        if (this.natureRepository.findByName(nature2.getName()) == null){
+        if (this.natureRepository.findByNom(nature2.getNom()) == null){
             natureRepository.save(nature2);
         }
 
-        if (this.natureRepository.findByName(nature3.getName()) == null){
+        if (this.natureRepository.findByNom(nature3.getNom()) == null){
             natureRepository.save(nature3);
         }
 
-        Mission mission1 = new Mission(LocalDate.now(), LocalDate.of(2018,Month.JULY, 12), nature1, "Nantes", "Lyon", Mission.Transport.Covoiturage, Mission.Statut.INITIALE);
-        Mission mission2 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.SEPTEMBER, 20), nature2, "Paris", "Rennes", Mission.Transport.Train, Mission.Statut.EN_ATTENTE_VALIDATION);
-        Mission mission3 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.JULY, 30), nature3, "Poitiers", "Marseille", Mission.Transport.Voiture_de_service, Mission.Statut.VALIDEE);
+        Mission mission1 = new Mission(LocalDate.now(), LocalDate.of(2018,Month.JULY, 12), nature1, "Nantes", "Lyon", Mission.Transport.COVOITURAGE, Mission.Statut.INITIALE);
+        Mission mission2 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.SEPTEMBER, 20), nature2, "Paris", "Rennes", Mission.Transport.TRAIN, Mission.Statut.EN_ATTENTE_VALIDATION);
+        Mission mission3 = new Mission(LocalDate.now(), LocalDate.of(2018, Month.JULY, 30), nature3, "Poitiers", "Marseille", Mission.Transport.VOITURE_DE_SERVICE, Mission.Statut.VALIDEE);
 
         /**
          * On enregistre la mission uniquement si aucune autre mission avec la même nature n'est présente en base.
@@ -64,15 +64,15 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
          * Si une autre mission avec la même nature est déjà présente, notre mission n'est pas enregistrée.
          * Ce n'est cependant pas un problème car il s'agit seuelemnt d'un jeu de données test.
          */
-        if (this.missionRepository.findByNatureName(mission1.getNature().getName()).isEmpty()){
+        if (this.missionRepository.findByNatureNom(mission1.getNature().getNom()).isEmpty()){
             missionRepository.save(mission1);
         }
 
-        if (this.missionRepository.findByNatureName(mission2.getNature().getName()).isEmpty()){
+        if (this.missionRepository.findByNatureNom(mission2.getNature().getNom()).isEmpty()){
             missionRepository.save(mission2);
         }
 
-        if (this.missionRepository.findByNatureName(mission3.getNature().getName()).isEmpty()){
+        if (this.missionRepository.findByNatureNom(mission3.getNature().getNom()).isEmpty()){
             missionRepository.save(mission3);
         }
 
