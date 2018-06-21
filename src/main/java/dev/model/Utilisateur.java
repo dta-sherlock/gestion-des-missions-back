@@ -1,6 +1,7 @@
 package dev.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Utilisateur {
@@ -22,6 +23,10 @@ public class Utilisateur {
     //La photo est penser pour être un lien. Elle n'est pas obligatoire.
     @Column(nullable = true)
     private String photo;
+    @ManyToOne
+    private Utilisateur manager;
+    @OneToMany(mappedBy = "manager")
+    private List<Utilisateur> employers;
 
     public Utilisateur() {}
 
