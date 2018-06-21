@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>dev</groupId>
     <artifactId>gestion-des-missions-back</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -90,9 +89,9 @@
             </activation>
             <properties>
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-                <jdbc.url>jdbc:mysql://localhost:3306/sirh-db</jdbc.url>
-                <jdbc.user>sirh-db</jdbc.user>
-                <jdbc.pass>sirh-db</jdbc.pass>
+                <jdbc.url>jdbc:mysql://localhost:3306/projet-gestion-mission?useSSL=false</jdbc.url>
+                <jdbc.user>root</jdbc.user>
+                <jdbc.pass></jdbc.pass>
                 <jpa.hibernate.ddl>create-drop</jpa.hibernate.ddl>
                 <jdbc.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</jdbc.dialect>
                 <jdbc.connections.max.active>5</jdbc.connections.max.active>
@@ -105,7 +104,7 @@
                 </dependency>
             </dependencies>
         </profile>
-        <profile>
+       <!-- <profile>
             <id>prod</id>
             <properties>
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
@@ -124,7 +123,7 @@
                     <scope>runtime</scope>
                 </dependency>
             </dependencies>
-        </profile>
+        </profile> -->
 
     </profiles>
 
