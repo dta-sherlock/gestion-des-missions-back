@@ -27,9 +27,9 @@ public class NatureRepositoryTest {
 
     @Before
     public void setUp(){
-        natureTest.setNom("Test");
+        natureTest.setName("Test");
         testEntityManager.persist(natureTest);
-        natureTest2.setNom("Test2");
+        natureTest2.setName("Test2");
         testEntityManager.persist(natureTest2);
         testEntityManager.flush();
     }

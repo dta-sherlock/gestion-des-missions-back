@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <appender nom="FILE" class="ch.qos.logback.core.FileAppender">
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>app.log</file>
         <append>true</append>
         <encoder>
@@ -14,11 +14,11 @@
         </encoder>
     </appender>
 
-    <logger nom="dev.service" level="DEBUG">
+    <logger name="dev.service" level="DEBUG">
         <appender-ref ref="FILE" />
     </logger>
 
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
-    <logger nom="org.springframework.web" level="DEBUG"/>
+    <logger name="org.springframework.web" level="DEBUG"/>
 
 </configuration>
