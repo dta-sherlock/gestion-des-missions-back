@@ -27,6 +27,8 @@ public class Utilisateur {
     private Utilisateur manager;
     @OneToMany(mappedBy = "manager")
     private List<Utilisateur> employers;
+    @ManyToOne
+    private List<Mission> missions;
 
     public Utilisateur() {}
 
@@ -91,5 +93,12 @@ public class Utilisateur {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+        public List<Mission> getMissions() {
+        return missions;
+    }
+
+    public void setMissions(List<Mission> missions) {
+        this.missions = missions;
     }
 }
