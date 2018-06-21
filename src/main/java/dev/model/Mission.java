@@ -1,15 +1,12 @@
 package dev.model;
 
-import org.hibernate.tuple.GeneratedValueGeneration;
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
+
 @Entity
 public class Mission {
 
-    public enum Statue{
+    public enum Statut {
         INITIALE,
         EN_ATTENTE_VALIDATION,
         VALIDEE,
@@ -25,8 +22,8 @@ public class Mission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private LocalDate dateDeDebut;
-    private LocalDate dateDeFin;
+    private LocalDate dateDebut;
+    private LocalDate dateFin;
     @ManyToOne
     @JoinColumn(name = "NAT_ID")
     private Nature nature;
@@ -35,20 +32,20 @@ public class Mission {
     @Enumerated(EnumType.STRING)
     private Transport transport;
     @Enumerated(EnumType.STRING)
-    private Statue statue;
+    private Statut statut;
 
     public Mission(){
 
     }
 
-    public Mission(LocalDate dateDeDebut, LocalDate dateDeFin, Nature nature, String villeDeDepart, String villeDArrivee, Transport transport, Statue statue) {
-        this.dateDeDebut = dateDeDebut;
-        this.dateDeFin = dateDeFin;
+    public Mission(LocalDate dateDebut, LocalDate dateFin, Nature nature, String villeDeDepart, String villeDArrivee, Transport transport, Statut statut) {
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
         this.nature = nature;
         VilleDeDepart = villeDeDepart;
         VilleDArrivee = villeDArrivee;
         this.transport = transport;
-        this.statue = statue;
+        this.statut = statut;
     }
 
     public int getId() {
@@ -59,20 +56,20 @@ public class Mission {
         this.id = id;
     }
 
-    public LocalDate getDateDeDebut() {
-        return dateDeDebut;
+    public LocalDate getDateDebut() {
+        return dateDebut;
     }
 
-    public void setDateDeDebut(LocalDate dateDeDebut) {
-        this.dateDeDebut = dateDeDebut;
+    public void setDateDebut(LocalDate dateDebut) {
+        this.dateDebut = dateDebut;
     }
 
-    public LocalDate getDateDeFin() {
-        return dateDeFin;
+    public LocalDate getDateFin() {
+        return dateFin;
     }
 
-    public void setDateDeFin(LocalDate dateDeFin) {
-        this.dateDeFin = dateDeFin;
+    public void setDateFin(LocalDate dateDeFin) {
+        this.dateFin = dateFin;
     }
 
     public Nature getNature() {
@@ -107,11 +104,11 @@ public class Mission {
         this.transport = transport;
     }
 
-    public Statue getStatue() {
-        return statue;
+    public Statut getStatut() {
+        return statut;
     }
 
-    public void setStatue(Statue statue) {
-        this.statue = statue;
+    public void setStatut(Statut statut) {
+        this.statut = statut;
     }
 }
