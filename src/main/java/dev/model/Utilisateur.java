@@ -27,7 +27,7 @@ public class Utilisateur {
     private Utilisateur manager;
     @OneToMany(mappedBy = "manager")
     private List<Utilisateur> employers;
-    @ManyToOne
+    @OneToMany
     private List<Mission> missions;
 
     public Utilisateur() {}
