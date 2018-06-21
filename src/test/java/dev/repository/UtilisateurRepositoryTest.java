@@ -29,6 +29,7 @@ public class UtilisateurRepositoryTest {
     public void setUp(){
         utilisateurTest.setNom("Utilisateur Test");
         testEntityManager.persist(utilisateurTest);
+        utilisateurTest2.setNom("Utilisateur Test 2");
         testEntityManager.persist(utilisateurTest2);
         testEntityManager.flush();
     }
@@ -50,9 +51,10 @@ public class UtilisateurRepositoryTest {
 
     @Test
     public void testDelete(){
-    utilisateurRepository.delete(utilisateurTest2);
 
-        Utilisateur found = utilisateurRepository.findByNom(utilisateurTest.getNom());
+        utilisateurRepository.delete(utilisateurTest2);
+
+        Utilisateur found = utilisateurRepository.findByNom(utilisateurTest2.getNom());
 
         assertThat(found).isNull();
     }
