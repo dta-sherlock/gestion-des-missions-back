@@ -26,5 +26,5 @@ public class UtilisateurController {
         }
         return this.utilisateurRepository.findOne(id);
     }
-    
+
 }
