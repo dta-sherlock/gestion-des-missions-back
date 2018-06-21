@@ -33,4 +33,23 @@ public class MissionController {
     public void postMission(@RequestBody Mission mission){
         this.missionRepository.save(mission);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteMission(@PathVariable Integer id) throws ItemNotFoundException {
+        if (this.missionRepository.findOne(id) == null) {
+            throw new ItemNotFoundException();
+        }
+
+        this.missionRepository.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateMission(@PathVariable Integer id, @RequestBody Mission mission) throws ItemNotFoundException {
+        if (this.missionRepository.findOne(id) == null) {
+            throw new ItemNotFoundException();
+        }
+
+        mission.setId(this.missionRepository.findOne(id).getId());
+        this.missionRepository.save(mission);
+    }
 }
