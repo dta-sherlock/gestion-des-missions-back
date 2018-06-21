@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface MissionRepository extends JpaRepository<Mission, Integer> {
-    List<Mission> findByNatureName(String name);
+    List<Mission> findByNatureNom(String nom);
 }

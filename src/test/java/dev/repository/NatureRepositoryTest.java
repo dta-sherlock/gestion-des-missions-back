@@ -43,13 +43,13 @@ public class NatureRepositoryTest {
 
     @Test
     public void testFindByName() {
-        Nature found = natureRepository.findByName(natureTest.getName());
+        Nature found = natureRepository.findByNom(natureTest.getName());
         assertThat(found.getName()).isEqualTo(natureTest.getName());
     }
 
     @Test
     public void testDelete() {
         natureRepository.delete(natureTest2);
-        assertThat(natureRepository.findByName(natureTest2.getName())).isNull();
+        assertThat(natureRepository.findByNom(natureTest2.getName())).isNull();
     }
 }

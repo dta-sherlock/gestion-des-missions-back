@@ -4,5 +4,5 @@ import dev.model.Nature;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NatureRepository extends JpaRepository<Nature, Integer> {
-    Nature findByName(String name);
+    Nature findByNom(String nom);
 }
