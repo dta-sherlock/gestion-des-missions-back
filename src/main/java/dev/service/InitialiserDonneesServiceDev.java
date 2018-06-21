@@ -42,15 +42,15 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
         /**
          * On vérifie que la nature n'est pas présente en base avant de l'enregistrer
          */
-        if (this.natureRepository.findByName(nature1.getNom()) == null) {
+        if (this.natureRepository.findByName(nature1.getName()) == null) {
             natureRepository.save(nature1);
         }
 
-        if (this.natureRepository.findByName(nature2.getNom()) == null){
+        if (this.natureRepository.findByName(nature2.getName()) == null){
             natureRepository.save(nature2);
         }
 
-        if (this.natureRepository.findByName(nature3.getNom()) == null){
+        if (this.natureRepository.findByName(nature3.getName()) == null){
             natureRepository.save(nature3);
         }
 
@@ -64,15 +64,15 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService{
          * Si une autre mission avec la même nature est déjà présente, notre mission n'est pas enregistrée.
          * Ce n'est cependant pas un problème car il s'agit seuelemnt d'un jeu de données test.
          */
-        if (this.missionRepository.findByNatureName(mission1.getNature().getNom()).isEmpty()){
+        if (this.missionRepository.findByNatureName(mission1.getNature().getName()).isEmpty()){
             missionRepository.save(mission1);
         }
 
-        if (this.missionRepository.findByNatureName(mission2.getNature().getNom()).isEmpty()){
+        if (this.missionRepository.findByNatureName(mission2.getNature().getName()).isEmpty()){
             missionRepository.save(mission2);
         }
 
-        if (this.missionRepository.findByNatureName(mission3.getNature().getNom()).isEmpty()){
+        if (this.missionRepository.findByNatureName(mission3.getNature().getName()).isEmpty()){
             missionRepository.save(mission3);
         }
 

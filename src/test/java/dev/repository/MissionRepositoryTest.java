@@ -29,7 +29,7 @@ public class MissionRepositoryTest {
     @Before
     public void setUp(){
         Nature natureTest = new Nature();
-        natureTest.setNom("Nature test");
+        natureTest.setName("Nature test");
         missionTest2.setNature(natureTest);
 
         testEntityManager.persist(natureTest);
@@ -48,7 +48,7 @@ public class MissionRepositoryTest {
 
     @Test
     public void testFindByNatureName(){
-        List <Mission> found = missionRepository.findByNatureName(missionTest2.getNature().getNom());
+        List <Mission> found = missionRepository.findByNatureName(missionTest2.getNature().getName());
 
         assertThat(found).contains(missionTest2);
     }
@@ -57,7 +57,7 @@ public class MissionRepositoryTest {
     public void testDelete(){
         missionRepository.delete(missionTest2);
 
-        List <Mission> found = missionRepository.findByNatureName(missionTest2.getNature().getNom());
+        List <Mission> found = missionRepository.findByNatureName(missionTest2.getNature().getName());
 
         assertThat(found).isEmpty();
     }

@@ -21,8 +21,8 @@ public class Nature {
 
     public Nature(){}
 
-    public Nature(String nom, boolean facturation, boolean prime, int plafond, boolean plafondDepassable, LocalDate debutValidite) {
-        this.nom = nom;
+    public Nature(String name, boolean facturation, boolean prime, int plafond, boolean plafondDepassable, LocalDate debutValidite) {
+        this.nom = name;
         this.facturation = facturation;
         this.prime = prime;
         this.plafond = plafond;
@@ -30,8 +30,8 @@ public class Nature {
         this.debutValidite = debutValidite;
     }
 
-    public Nature(String nom, boolean facturation, boolean prime, int TJM, float pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
-        this.nom = nom;
+    public Nature(String name, boolean facturation, boolean prime, int TJM, float pourcentage, int plafond, boolean plafondDepassable, LocalDate debutValidite, LocalDate finValidite) {
+        this.nom = name;
         this.facturation = facturation;
         this.prime = prime;
         this.TJM = TJM;
@@ -81,12 +81,12 @@ public class Nature {
         this.pourcentage = pourcentage;
     }
 
-    public String getNom() {
+    public String getName() {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.nom = name;
     }
 
     public LocalDate getFinValidite() {
