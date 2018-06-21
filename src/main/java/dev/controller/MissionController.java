@@ -42,4 +42,14 @@ public class MissionController {
 
         this.missionRepository.delete(id);
     }
+
+    @PutMapping("/{id}")
+    public void updateMission(@PathVariable Integer id, @RequestBody Mission mission) throws ItemNotFoundException {
+        if (this.missionRepository.findOne(id) == null) {
+            throw new ItemNotFoundException();
+        }
+
+        mission.setId(this.missionRepository.findOne(id).getId());
+        this.missionRepository.save(mission);
+    }
 }
