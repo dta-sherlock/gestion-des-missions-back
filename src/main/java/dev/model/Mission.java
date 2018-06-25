@@ -37,8 +37,8 @@ public class Mission {
     @ManyToOne
     @JoinColumn(name = "NAT_ID")
     private Nature nature;
-    private String VilleDeDepart;
-    private String VilleDArrivee;
+    private String villeDeDepart;
+    private String villeDArrivee;
     @Enumerated(EnumType.STRING)
     private Transport transport;
     @Enumerated(EnumType.STRING)
@@ -53,8 +53,8 @@ public class Mission {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.nature = nature;
-        VilleDeDepart = villeDeDepart;
-        VilleDArrivee = villeDArrivee;
+        this.villeDeDepart = villeDeDepart;
+        this.villeDArrivee = villeDArrivee;
         this.transport = transport;
         this.statut = statut;
         this.prime = 0;
@@ -93,19 +93,19 @@ public class Mission {
     }
 
     public String getVilleDeDepart() {
-        return VilleDeDepart;
+        return villeDeDepart;
     }
 
     public void setVilleDeDepart(String villeDeDepart) {
-        VilleDeDepart = villeDeDepart;
+        this.villeDeDepart = villeDeDepart;
     }
 
     public String getVilleDArrivee() {
-        return VilleDArrivee;
+        return villeDArrivee;
     }
 
     public void setVilleDArrivee(String villeDArrivee) {
-        VilleDArrivee = villeDArrivee;
+        this.villeDArrivee = villeDArrivee;
     }
 
     public Transport getTransport() {
