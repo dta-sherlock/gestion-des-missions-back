@@ -36,7 +36,6 @@ public class MissionController {
 
     @DeleteMapping("/{id}")
     public void deleteMission(@PathVariable Integer id) throws ItemNotFoundException, DataIntegrityViolationException {
-
         if (this.missionRepository.findOne(id) == null) {
             throw new ItemNotFoundException();
         }
