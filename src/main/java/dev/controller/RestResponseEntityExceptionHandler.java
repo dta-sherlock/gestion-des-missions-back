@@ -1,10 +1,7 @@
 package dev.controller;
 
 import dev.exception.ItemNotFoundException;
-<<<<<<< HEAD
 import org.springframework.dao.InvalidDataAccessApiUsageException;
-=======
->>>>>>> gestion de l'exception DataIntegrityViolation
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
