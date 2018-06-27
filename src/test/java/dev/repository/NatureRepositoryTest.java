@@ -44,12 +44,15 @@ public class NatureRepositoryTest {
     @Test
     public void testFindByName() {
         Nature found = natureRepository.findByNom(natureTest.getNom());
+
         assertThat(found.getNom()).isEqualTo(natureTest.getNom());
     }
 
     @Test
     public void testDelete() {
         natureRepository.delete(natureTest2);
+
         assertThat(natureRepository.findByNom(natureTest2.getNom())).isNull();
+
     }
 }

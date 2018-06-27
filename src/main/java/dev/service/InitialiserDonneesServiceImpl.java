@@ -112,14 +112,6 @@ public class InitialiserDonneesServiceImpl implements InitialiserDonneesService{
         this.missionRepository.delete(mission2);
         this.missionRepository.delete(mission3);
 
-        this.natureRepository.delete(nature1);
-        this.natureRepository.delete(nature2);
-        this.natureRepository.delete(nature3);
-
-        this.utilisateurRepository.delete(utilisateur1);
-        this.utilisateurRepository.delete(utilisateur2);
-        this.utilisateurRepository.delete(utilisateur3);
-
         LOG.debug("Suppression des donnees");
     }
 }
