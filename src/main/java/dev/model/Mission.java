@@ -80,7 +80,7 @@ public class Mission {
         return dateFin;
     }
 
-    public void setDateFin(LocalDate dateDeFin) {
+    public void setDateFin(LocalDate dateFin) {
         this.dateFin = dateFin;
     }
 
