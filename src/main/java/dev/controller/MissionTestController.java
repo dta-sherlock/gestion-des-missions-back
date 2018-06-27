@@ -16,7 +16,7 @@ public class MissionTestController {
     private InitialiserDonneesService initialiserDonneesService;
 
     @PostMapping
-    public void postMissionTest(){
+    public void initialiserData(){
         initialiserDonneesService.initialiser();
     }
 
